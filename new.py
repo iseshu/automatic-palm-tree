@@ -66,8 +66,6 @@ count = 0
 lisk = []
 lock = threading.Lock()
 
-def count():
-    print(count, end="\r")
 print("Starting...")
 def do_task(admin):
     global count, lisk
@@ -96,7 +94,6 @@ def do_task(admin):
 
 start = time.time()
 threads = []
-threading.Thread(target=count).start()
 for i in range(1600000, 2180000):
     thread = threading.Thread(target=do_task, args=(i,))
     thread.start()
