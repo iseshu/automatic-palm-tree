@@ -95,6 +95,7 @@ def do_task(admin):
 start = time.time()
 threads = []
 for i in range(1600000, 2180000):
+    time.sleep(0.01)
     thread = threading.Thread(target=do_task, args=(i,))
     thread.start()
     threads.append(thread)
